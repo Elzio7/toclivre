@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TOCLivre — Protocolo ERP para Transtorno Obsessivo-Compulsivo</title>
+  <meta name="description" content="App de bem-estar baseado em Exposição e Prevenção de Resposta (ERP). Quebre o ciclo compulsivo com protocolo baseado em evidências."/>
+  <meta property="og:title" content="TOCLivre — Quebre o ciclo compulsivo"/>
+  <meta property="og:description" content="Protocolo ERP guiado, acompanhamento longitudinal e protocolo de crise. Em português, para o Brasil."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://SEU-DOMINIO/og-toclivre.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="TOCLivre — Quebre o ciclo compulsivo"/>
+  <meta name="twitter:description" content="Protocolo ERP guiado, acompanhamento longitudinal e protocolo de crise. Em português, para o Brasil."/>
+  <meta name="twitter:image" content="https://SEU-DOMINIO/og-toclivre.jpg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #F5F0E8;
+      --bg2:       #EDE6D6;
+      --green:     #2D6A4F;
+      --greenMid:  #40916C;
+      --greenLight:#B7E4C7;
+      --amber:     #C8761A;
+      --ink:       #1A1A2E;
+      --inkMid:    #5C5470;
+      --inkDim:    #9E97B0;
+      --white:     #FFFFFF;
+      --serif:     'Fraunces', serif;
+      --sans:      'DM Sans', sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+
+    /* ─── LOGO MARK ─── */
+    .logo-mark { display: block; flex: 0 0 auto; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(245,240,232,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(45,106,79,0.10);
+      transition: all 0.3s;
+    }
+    .nav-logo { font-family: var(--serif); font-size: 24px; font-weight: 900; color: var(--ink); letter-spacing: -0.03em; line-height: 1; }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--inkMid); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta {
+      background: var(--green); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 100px; font-weight: 600 !important;
+      transition: all 0.2s !important; text-decoration: none;
+      display: inline-flex; align-items: center; white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--greenMid) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,106,79,0.25); }
+    .nav-cta-mobile { display: none; }
+
+    /* ─── HERO ─── */
+    .hero { min-height: 100vh; padding: 130px 48px 80px; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--bg); }
+    .hero-shape { position: absolute; border-radius: 999px; border: 1px solid rgba(45,106,79,0.12); background: rgba(45,106,79,0.03); animation: breathe 8s ease-in-out infinite; }
+    .hero-shape.s1 { width: 620px; height: 620px; right: -140px; top: 50%; transform: translateY(-50%); }
+    .hero-shape.s2 { width: 460px; height: 460px; right: -60px; top: 50%; transform: translateY(-50%); animation-delay: 1s; }
+    .hero-shape.s3 { width: 260px; height: 260px; right: 80px; top: 50%; transform: translateY(-50%); animation-delay: 2s; background: rgba(45,106,79,0.05); }
+    @keyframes breathe {
+      0%, 100% { opacity: 0.55; transform: translateY(-50%) scale(1); }
+      50% { opacity: 1; transform: translateY(-50%) scale(1.02); }
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 620px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(45,106,79,0.10); border: 1px solid rgba(45,106,79,0.20);
+      padding: 7px 16px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; color: var(--green);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px;
+    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
+    h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 900; line-height: 0.95; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
+    h1 em { font-style: italic; color: var(--green); }
+    .hero-sub { font-size: 18px; line-height: 1.65; color: var(--inkMid); max-width: 480px; margin-bottom: 40px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 64px; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: var(--white); padding: 16px 32px; border-radius: 100px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.25s; box-shadow: 0 8px 32px rgba(45,106,79,0.20); }
+    .btn-primary:hover { background: var(--greenMid); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(45,106,79,0.28); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--inkMid); padding: 16px 24px; border-radius: 100px; border: 1.5px solid rgba(92,84,112,0.20); font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); background: rgba(45,106,79,0.06); }
+    .hero-stats { display: flex; gap: 40px; flex-wrap: wrap; }
+    .stat-num { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--green); line-height: 1; letter-spacing: -0.03em; }
+    .stat-label { font-size: 12px; font-weight: 500; color: var(--inkDim); margin-top: 4px; line-height: 1.4; }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 100px 48px; }
+    .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+    h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin-bottom: 20px; }
+    h2 em { font-style: italic; color: var(--green); }
+    .section-sub { font-size: 17px; line-height: 1.65; color: var(--inkMid); max-width: 560px; margin-bottom: 56px; }
+
+    /* ─── PROBLEM ─── */
+    .problem { background: var(--ink); }
+    .problem .section-tag { color: var(--greenLight); }
+    .problem h2 { color: var(--white); }
+    .problem h2 em { color: var(--greenLight); }
+    .problem .section-sub { color: rgba(255,255,255,0.55); }
+    .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; background: rgba(255,255,255,0.05); border-radius: 24px; overflow: hidden; }
+    .problem-item { padding: 36px 32px; background: rgba(26,26,46,0.92); transition: background 0.2s; }
+    .problem-item:hover { background: rgba(45,106,79,0.16); }
+    .problem-num { font-family: var(--serif); font-size: 48px; font-weight: 900; color: var(--greenLight); opacity: 0.85; line-height: 1; margin-bottom: 12px; }
+    .problem-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.72); }
+    .problem-text strong { color: var(--white); }
+
+    /* ─── FEATURES ─── */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .feature-card { background: var(--white); border-radius: 24px; padding: 36px 32px; border: 1px solid rgba(45,106,79,0.08); transition: all 0.3s; position: relative; overflow: hidden; }
+    .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); opacity: 0; transition: opacity 0.3s; }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(45,106,79,0.12); }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon { width: 52px; height: 52px; border-radius: 16px; background: rgba(45,106,79,0.10); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+    .feature-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .feature-desc { font-size: 14px; line-height: 1.65; color: var(--inkMid); }
+
+    /* ─── PROTOCOL ─── */
+    .protocol { background: var(--bg2); }
+    .protocol-steps { display: flex; flex-direction: column; max-width: 700px; }
+    .protocol-step { display: flex; gap: 28px; align-items: flex-start; padding-bottom: 40px; position: relative; }
+    .protocol-step:not(:last-child)::after { content: ''; position: absolute; left: 22px; top: 52px; bottom: 0; width: 1.5px; background: rgba(45,106,79,0.22); }
+    .step-num { width: 46px; height: 46px; border-radius: 14px; flex-shrink: 0; background: var(--green); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 18px; font-weight: 900; color: var(--white); }
+    .step-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .step-desc { font-size: 14px; line-height: 1.7; color: var(--inkMid); }
+    .step-tag { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: rgba(45,106,79,0.10); color: var(--green); }
+
+    /* ─── QUOTE ─── */
+    .quote-section { background: #0D1F16; text-align: center; }
+    blockquote { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 42px); font-weight: 400; font-style: italic; line-height: 1.3; color: var(--white); max-width: 800px; margin: 0 auto 32px; letter-spacing: -0.02em; }
+    blockquote em { color: var(--greenLight); font-style: normal; }
+    .quote-attr { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
+
+    /* ─── SUBTYPES ─── */
+    .subtypes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+    .subtype-pill { background: var(--white); border: 1px solid rgba(45,106,79,0.10); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
+    .subtype-pill:hover { border-color: var(--green); background: rgba(45,106,79,0.05); transform: translateY(-2px); }
+    .subtype-emoji { font-size: 22px; }
+    .subtype-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+    /* ─── DISCLAIMER ─── */
+    .disclaimer { background: var(--bg2); padding: 32px 48px; text-align: center; }
+    .disclaimer p { font-size: 11.5px; color: var(--inkDim); line-height: 1.7; max-width: 780px; margin: 0 auto; }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final { background: var(--green); text-align: center; padding: 100px 48px; position: relative; overflow: hidden; }
+    .cta-final h2 { color: var(--white); }
+    .cta-final h2 em { color: var(--greenLight); }
+    .cta-final .section-sub { color: rgba(255,255,255,0.70); margin: 0 auto 40px; }
+    .btn-white { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--green); padding: 18px 40px; border-radius: 100px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.25s; box-shadow: 0 8px 40px rgba(0,0,0,0.18); border: none; cursor: pointer; }
+    .btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(0,0,0,0.25); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--ink); padding: 64px 48px 40px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
+    .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-logo { font-family: var(--serif); font-size: 28px; font-weight: 900; color: var(--white); letter-spacing: -0.03em; line-height: 1; }
+    .footer-logo span { color: var(--greenLight); }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.6; max-width: 280px; }
+    .footer-links h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .footer-links a { display: block; font-size: 13px; color: rgba(255,255,255,0.62); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--greenLight); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.28); }
+    .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.22); max-width: 520px; line-height: 1.5; text-align: right; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 18px; }
+      .nav-links { display: none; }
+      .nav-cta-mobile { display: inline-flex; }
+      section { padding: 72px 24px; }
+      .hero { padding: 110px 24px 64px; }
+      .hero-shape { display: none; }
+      .hero-stats { gap: 24px; }
+      .disclaimer { padding: 24px; }
+      .cta-final { padding: 72px 24px; }
+      footer { padding: 48px 24px 32px; }
+      .footer-disclaimer { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║  LOGO TOCLIVRE — PATHS VETORIAIS ORIGINAIS                    ║
+  ║  Definidos UMA única vez aqui em <defs>.                      ║
+  ║  Para usar: <svg class="logo-mark"><use href="#toclivre-logo"/>  ║
+  ║  Fundo escuro: <use href="#toclivre-logo-dark"/>              ║
+  ║  viewBox original: 270 345 292 292 (canvas 1536×1024)         ║
+  ╚═══════════════════════════════════════════════════════════════╝
+  -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute;pointer-events:none" aria-hidden="true">
+    <defs>
+      <!-- Versão normal: fundo claro (nav) -->
+      <symbol id="toclivre-logo" viewBox="270 345 292 292">
+        <path d="M0 0 C4.48353704 3.84536478 8.75164771 7.89854786 13 12 C13.65355469 12.59039062 14.30710937 13.18078125 14.98046875 13.7890625 C35.04899381 32.37985769 46.8729365 60.56299975 48.11669922 87.53027344 C48.51622741 98.44275987 48.27405526 108.49573937 45 119 C44.67 119 44.34 119 44 119 C43.97812622 118.15574463 43.97812622 118.15574463 43.95581055 117.29443359 C43.62741726 105.90626481 43.04183766 95.04263756 40 84 C39.67257812 82.741875 39.34515625 81.48375 39.0078125 80.1875 C31.31824004 52.25226894 11.86808957 28.53685762 -12.95410156 13.84326172 C-27.70759657 5.58439194 -43.3236202 0.49401216 -60 -2 C-60.804375 -2.13148438 -61.60875 -2.26296875 -62.4375 -2.3984375 C-88.35176033 -6.03036035 -114.46453717 0.20890729 -137 13 C-137.98226562 13.55429687 -138.96453125 14.10859375 -139.9765625 14.6796875 C-158.02140208 25.54819318 -171.07179612 40.62282093 -181 59 C-181.49242187 59.91136719 -181.98484375 60.82273437 -182.4921875 61.76171875 C-185.23784433 67.32977437 -187.04720779 73.11068996 -188.75 79.0625 C-189.06662598 80.1604187 -189.06662598 80.1604187 -189.38964844 81.28051758 C-197.26911605 110.32392468 -190.52661367 141.67212239 -176.09082031 167.41503906 C-171.59220962 175.06300875 -166.17577743 181.65350034 -160 188 C-159.51805176 188.49580566 -159.03610352 188.99161133 -158.53955078 189.50244141 C-146.58170728 201.565569 -132.3443759 209.94735595 -117 217 C-115.38931641 217.7425 -115.38931641 217.7425 -113.74609375 218.5 C-101.82619465 223.72175502 -89.56748667 225.64826915 -76.75 227.1875 C-75.31111385 227.36585956 -73.87231096 227.54489215 -72.43359375 227.72460938 C-68.95665126 228.15747609 -65.47868248 228.58131709 -62 229 C-62 232.96 -62 236.92 -62 241 C-80.96049832 241.56131918 -98.70286742 241.72967256 -117 236 C-117.76151367 235.77006348 -118.52302734 235.54012695 -119.30761719 235.30322266 C-140.17259737 228.89683044 -160.24374889 218.1589925 -176 203 C-177.36931449 201.82666546 -178.74407974 200.65965311 -180.125 199.5 C-192.92871839 188.25833526 -202.03384342 174.12532169 -209.15673828 158.80859375 C-209.90805927 157.19719078 -210.68473415 155.59766447 -211.46484375 154 C-219.24725713 137.72553068 -222.55185679 120.33412386 -222.33618164 102.40795898 C-222.31238343 100.30218544 -222.315684 98.19767325 -222.32226562 96.09179688 C-222.2992182 84.11508076 -220.87462474 72.66499269 -217.375 61.1875 C-217.11775146 60.34002197 -216.86050293 59.49254395 -216.59545898 58.61938477 C-210.07992498 38.07898566 -197.23584539 17.31363114 -181 3 C-180.21496094 2.30777344 -179.42992187 1.61554688 -178.62109375 0.90234375 C-163.51135027 -11.92004409 -146.19969683 -21.90177542 -127 -27 C-125.741875 -27.37125 -124.48375 -27.7425 -123.1875 -28.125 C-122.135625 -28.41375 -121.08375 -28.7025 -120 -29 C-119.06994141 -29.26103516 -119.06994141 -29.26103516 -118.12109375 -29.52734375 C-78.39791289 -40.1771985 -31.16569628 -25.60466805 0 0 Z" fill="#CFC7B9" transform="translate(505,387)"/>
+        <path d="M0 0 C-3.40226667 2.26817778 -5.16714716 2.36138131 -9.1875 2.75 C-28.10434966 5.26834222 -43.66813465 14.68754057 -57 28 C-58.00353516 28.98613281 -58.00353516 28.98613281 -59.02734375 29.9921875 C-68.34074889 39.83356345 -73.33061111 52.18076155 -77 65 C-77.17813232 65.60875977 -77.35626465 66.21751953 -77.53979492 66.84472656 C-82.13739624 88.3766228 -76.46128054 111.60946442 -65 130 C-60.93219504 135.8850433 -56.08646299 140.99376513 -51 146 C-50.02740234 146.96873047 -50.02740234 146.96873047 -49.03515625 147.95703125 C-29.0994555 166.70843295 -2.27914235 172.8018734 24.3203125 172.40234375 C51.53743764 171.30000703 78.87608676 156.13859621 97.25 136.625 C104.61056606 128.26283793 109.78696313 118.79033754 115 109 C118.96 109 122.92 109 127 109 C127.67071552 127.94771352 116.73414475 146.82547853 105 161 C104.02353516 162.23943359 104.02353516 162.23943359 103.02734375 163.50390625 C87.39212539 182.27219342 65.31136272 193.27085468 42 199 C41.25331055 199.19432617 40.50662109 199.38865234 39.73730469 199.58886719 C31.94330125 201.41147491 24.08564305 201.39626859 16.125 201.375 C15.3962265 201.37478851 14.667453 201.37457703 13.91659546 201.37435913 C1.91722263 201.33965462 -9.44276774 200.38592963 -21 197 C-22.25039063 196.63777344 -23.50078125 196.27554688 -24.7890625 195.90234375 C-39.13083197 191.21185373 -51.53198726 183.68601578 -63 174 C-63.51691406 173.56816406 -64.03382813 173.13632812 -64.56640625 172.69140625 C-83.4032805 156.78156509 -97.63810456 133.72337908 -101 109 C-101.23763414 105.05697064 -101.23917664 101.13635158 -101.1875 97.1875 C-101.1781543 96.13014648 -101.16880859 95.07279297 -101.15917969 93.98339844 C-101.12324968 90.98830963 -101.06734643 87.99452984 -101 85 C-100.98598145 84.28215332 -100.97196289 83.56430664 -100.95751953 82.82470703 C-100.38431628 60.4106872 -87.31109103 39.29996615 -71.4609375 24.1171875 C-58.4498761 12.9235442 -43.777956 5.63705146 -27 2 C-25.47246094 1.66162109 -25.47246094 1.66162109 -23.9140625 1.31640625 C-15.91786726 -0.237814 -8.11389319 -0.19952196 0 0 Z" fill="#3D6041" transform="translate(436,401)"/>
+        <path d="M0 0 C6.11748576 4.21448938 11.32307288 9.31454524 13.625 16.5 C14.74077828 25.67273537 13.12223554 33.49311181 7.82421875 41.078125 C3.22963798 46.13787647 -3.02127465 48.98134248 -9.734375 50.01953125 C-17.92847609 50.27920347 -24.40921891 49.0475968 -30.59765625 43.51171875 C-36.41351395 37.40031838 -39.41446361 31.95293594 -39.75 23.5 C-39.44277617 15.46302463 -36.72545933 10.12449006 -31.27734375 4.26171875 C-23.00851733 -3.39585972 -9.99127397 -5.6545707 0 0 Z" fill="#3E6142" transform="translate(457.375,499.5)"/>
+      </symbol>
+      <!-- Versão dark: fundo escuro (footer) -->
+      <symbol id="toclivre-logo-dark" viewBox="270 345 292 292">
+        <path d="M0 0 C4.48353704 3.84536478 8.75164771 7.89854786 13 12 C13.65355469 12.59039062 14.30710937 13.18078125 14.98046875 13.7890625 C35.04899381 32.37985769 46.8729365 60.56299975 48.11669922 87.53027344 C48.51622741 98.44275987 48.27405526 108.49573937 45 119 C44.67 119 44.34 119 44 119 C43.97812622 118.15574463 43.97812622 118.15574463 43.95581055 117.29443359 C43.62741726 105.90626481 43.04183766 95.04263756 40 84 C39.67257812 82.741875 39.34515625 81.48375 39.0078125 80.1875 C31.31824004 52.25226894 11.86808957 28.53685762 -12.95410156 13.84326172 C-27.70759657 5.58439194 -43.3236202 0.49401216 -60 -2 C-60.804375 -2.13148438 -61.60875 -2.26296875 -62.4375 -2.3984375 C-88.35176033 -6.03036035 -114.46453717 0.20890729 -137 13 C-137.98226562 13.55429687 -138.96453125 14.10859375 -139.9765625 14.6796875 C-158.02140208 25.54819318 -171.07179612 40.62282093 -181 59 C-181.49242187 59.91136719 -181.98484375 60.82273437 -182.4921875 61.76171875 C-185.23784433 67.32977437 -187.04720779 73.11068996 -188.75 79.0625 C-189.06662598 80.1604187 -189.06662598 80.1604187 -189.38964844 81.28051758 C-197.26911605 110.32392468 -190.52661367 141.67212239 -176.09082031 167.41503906 C-171.59220962 175.06300875 -166.17577743 181.65350034 -160 188 C-159.51805176 188.49580566 -159.03610352 188.99161133 -158.53955078 189.50244141 C-146.58170728 201.565569 -132.3443759 209.94735595 -117 217 C-115.38931641 217.7425 -115.38931641 217.7425 -113.74609375 218.5 C-101.82619465 223.72175502 -89.56748667 225.64826915 -76.75 227.1875 C-75.31111385 227.36585956 -73.87231096 227.54489215 -72.43359375 227.72460938 C-68.95665126 228.15747609 -65.47868248 228.58131709 -62 229 C-62 232.96 -62 236.92 -62 241 C-80.96049832 241.56131918 -98.70286742 241.72967256 -117 236 C-117.76151367 235.77006348 -118.52302734 235.54012695 -119.30761719 235.30322266 C-140.17259737 228.89683044 -160.24374889 218.1589925 -176 203 C-177.36931449 201.82666546 -178.74407974 200.65965311 -180.125 199.5 C-192.92871839 188.25833526 -202.03384342 174.12532169 -209.15673828 158.80859375 C-209.90805927 157.19719078 -210.68473415 155.59766447 -211.46484375 154 C-219.24725713 137.72553068 -222.55185679 120.33412386 -222.33618164 102.40795898 C-222.31238343 100.30218544 -222.315684 98.19767325 -222.32226562 96.09179688 C-222.2992182 84.11508076 -220.87462474 72.66499269 -217.375 61.1875 C-217.11775146 60.34002197 -216.86050293 59.49254395 -216.59545898 58.61938477 C-210.07992498 38.07898566 -197.23584539 17.31363114 -181 3 C-180.21496094 2.30777344 -179.42992187 1.61554688 -178.62109375 0.90234375 C-163.51135027 -11.92004409 -146.19969683 -21.90177542 -127 -27 C-125.741875 -27.37125 -124.48375 -27.7425 -123.1875 -28.125 C-122.135625 -28.41375 -121.08375 -28.7025 -120 -29 C-119.06994141 -29.26103516 -119.06994141 -29.26103516 -118.12109375 -29.52734375 C-78.39791289 -40.1771985 -31.16569628 -25.60466805 0 0 Z" fill="rgba(255,255,255,0.18)" transform="translate(505,387)"/>
+        <path d="M0 0 C-3.40226667 2.26817778 -5.16714716 2.36138131 -9.1875 2.75 C-28.10434966 5.26834222 -43.66813465 14.68754057 -57 28 C-58.00353516 28.98613281 -58.00353516 28.98613281 -59.02734375 29.9921875 C-68.34074889 39.83356345 -73.33061111 52.18076155 -77 65 C-77.17813232 65.60875977 -77.35626465 66.21751953 -77.53979492 66.84472656 C-82.13739624 88.3766228 -76.46128054 111.60946442 -65 130 C-60.93219504 135.8850433 -56.08646299 140.99376513 -51 146 C-50.02740234 146.96873047 -50.02740234 146.96873047 -49.03515625 147.95703125 C-29.0994555 166.70843295 -2.27914235 172.8018734 24.3203125 172.40234375 C51.53743764 171.30000703 78.87608676 156.13859621 97.25 136.625 C104.61056606 128.26283793 109.78696313 118.79033754 115 109 C118.96 109 122.92 109 127 109 C127.67071552 127.94771352 116.73414475 146.82547853 105 161 C104.02353516 162.23943359 104.02353516 162.23943359 103.02734375 163.50390625 C87.39212539 182.27219342 65.31136272 193.27085468 42 199 C41.25331055 199.19432617 40.50662109 199.38865234 39.73730469 199.58886719 C31.94330125 201.41147491 24.08564305 201.39626859 16.125 201.375 C15.3962265 201.37478851 14.667453 201.37457703 13.91659546 201.37435913 C1.91722263 201.33965462 -9.44276774 200.38592963 -21 197 C-22.25039063 196.63777344 -23.50078125 196.27554688 -24.7890625 195.90234375 C-39.13083197 191.21185373 -51.53198726 183.68601578 -63 174 C-63.51691406 173.56816406 -64.03382813 173.13632812 -64.56640625 172.69140625 C-83.4032805 156.78156509 -97.63810456 133.72337908 -101 109 C-101.23763414 105.05697064 -101.23917664 101.13635158 -101.1875 97.1875 C-101.1781543 96.13014648 -101.16880859 95.07279297 -101.15917969 93.98339844 C-101.12324968 90.98830963 -101.06734643 87.99452984 -101 85 C-100.98598145 84.28215332 -100.97196289 83.56430664 -100.95751953 82.82470703 C-100.38431628 60.4106872 -87.31109103 39.29996615 -71.4609375 24.1171875 C-58.4498761 12.9235442 -43.777956 5.63705146 -27 2 C-25.47246094 1.66162109 -25.47246094 1.66162109 -23.9140625 1.31640625 C-15.91786726 -0.237814 -8.11389319 -0.19952196 0 0 Z" fill="#B7E4C7" transform="translate(436,401)"/>
+        <path d="M0 0 C6.11748576 4.21448938 11.32307288 9.31454524 13.625 16.5 C14.74077828 25.67273537 13.12223554 33.49311181 7.82421875 41.078125 C3.22963798 46.13787647 -3.02127465 48.98134248 -9.734375 50.01953125 C-17.92847609 50.27920347 -24.40921891 49.0475968 -30.59765625 43.51171875 C-36.41351395 37.40031838 -39.41446361 31.95293594 -39.75 23.5 C-39.44277617 15.46302463 -36.72545933 10.12449006 -31.27734375 4.26171875 C-23.00851733 -3.39585972 -9.99127397 -5.6545707 0 0 Z" fill="#B7E4C7" transform="translate(457.375,499.5)"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="brand" aria-label="TOCLivre - Início">
+      <svg class="logo-mark" width="36" height="36" aria-hidden="true"><use href="#toclivre-logo"/></svg>
+      <div class="nav-logo">TOC<span>Livre</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#subtypes">Subtipos</a>
+      <a href="#protocolo">Protocolo</a>
+      <a href="#lista-espera" class="nav-cta">Lista de espera</a>
+    </div>
+    <a href="#lista-espera" class="nav-cta nav-cta-mobile">Lista de espera</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-shape s1"></div>
+    <div class="hero-shape s2"></div>
+    <div class="hero-shape s3"></div>
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Protocolo ERP · Em português
+      </div>
+      <h1 class="reveal reveal-delay-1">Quebre<br/>o ciclo<br/><em>compulsivo.</em></h1>
+      <p class="hero-sub reveal reveal-delay-2">App de bem-estar com exercícios baseados em Exposição e Prevenção de Resposta — o protocolo com maior evidência científica para pensamentos obsessivos e comportamentos repetitivos.</p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="#lista-espera" class="btn-primary">
+          Entrar na lista de espera
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn-ghost">Ver como funciona</a>
+      </div>
+      <div class="hero-stats reveal reveal-delay-4">
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">subtipos de TOC<br/>cobertos</div></div>
+        <div class="stat-item"><div class="stat-num">42+</div><div class="stat-label">exercícios ERP<br/>estruturados</div></div>
+        <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">em português<br/>para o Brasil</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problem">
+    <div class="section-tag reveal">O problema que ninguém resolve</div>
+    <h2 class="reveal reveal-delay-1">Tratamento de TOC no Brasil<br/><em>tem um gap enorme.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">2,3% da população mundial tem TOC. No Brasil, o acesso a especialistas em TCC/ERP é caro, escasso e concentrado nos grandes centros.</p>
+    <div class="problem-grid">
+      <div class="problem-item reveal"><div class="problem-num">17</div><div class="problem-text"><strong>anos</strong> é o tempo médio entre o início dos sintomas e o diagnóstico correto de TOC no Brasil.</div></div>
+      <div class="problem-item reveal reveal-delay-1"><div class="problem-num">Poucos</div><div class="problem-text"><strong>apps em português</strong> oferecem um protocolo ERP realmente estruturado e orientado por dados.</div></div>
+      <div class="problem-item reveal reveal-delay-2"><div class="problem-num">R$350+</div><div class="problem-text"><strong>por sessão</strong> com especialista em TCC/ERP em São Paulo. Inacessível para a maioria.</div></div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="section-tag reveal">Como funciona</div>
+    <h2 class="reveal reveal-delay-1">Não é meditação.<br/><em>É protocolo.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">O TOCLivre é construído sobre ERP — a abordagem com maior evidência científica para TOC. Cada exercício, cada sessão, cada notificação segue lógica clínica.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal"><div class="feature-icon">📊</div><div class="feature-title">Avaliação Y-BOCS integrada</div><div class="feature-desc">Baseline clínico no onboarding. Reavaliação automática a cada 28 dias para medir sua resposta objetiva ao protocolo.</div></div>
+      <div class="feature-card reveal reveal-delay-1"><div class="feature-icon">⏱️</div><div class="feature-title">Sessão ERP com curva em tempo real</div><div class="feature-desc">Veja a curva de habituação sendo desenhada durante a exposição. Cada check-in a cada 2 minutos cria seu dado clínico real.</div></div>
+      <div class="feature-card reveal reveal-delay-2"><div class="feature-icon">🧠</div><div class="feature-title">Compulsões mentais como alvo</div><div class="feature-desc">Ruminação, neutralização, contagem, verificação de memória. O app trata o que os outros ignoram — as compulsões invisíveis.</div></div>
+      <div class="feature-card reveal reveal-delay-3"><div class="feature-icon">⚡</div><div class="feature-title">Protocolo de crise</div><div class="feature-desc">SUDS ≥ 8 ativa sequência estruturada de regulação e grounding, sem reassurance embutido.</div></div>
+      <div class="feature-card reveal"><div class="feature-icon">📈</div><div class="feature-title">Evolução longitudinal</div><div class="feature-desc">Curva semanal do SUDS médio, taxa de resistência, marcos clínicos e notificações calibradas por dias de uso.</div></div>
+      <div class="feature-card reveal reveal-delay-1"><div class="feature-icon">🔒</div><div class="feature-title">LGPD compliant</div><div class="feature-desc">Dados sensíveis com consentimento granular e portabilidade. Sem vender seus dados.</div></div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <blockquote class="reveal">"A ansiedade não diminui porque você cedeu à compulsão. Ela diminui porque você <em>tolerou</em>."</blockquote>
+    <div class="quote-attr reveal reveal-delay-1">PRINCÍPIO DO APRENDIZADO INIBITÓRIO · BASE CIENTÍFICA DO ERP</div>
+  </section>
+
+  <!-- SUBTIPOS -->
+  <section id="subtypes">
+    <div class="section-tag reveal">Subtipos cobertos</div>
+    <h2 class="reveal reveal-delay-1">Seu subtipo tem<br/><em>exercícios específicos.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Cada subtipo tem hierarquia própria com exposições in vivo, imaginais e focadas em compulsões mentais.</p>
+    <div class="subtypes-grid">
+      <div class="subtype-pill reveal"><span class="subtype-emoji">🧼</span><span class="subtype-name">Contaminação</span></div>
+      <div class="subtype-pill reveal reveal-delay-1"><span class="subtype-emoji">🔒</span><span class="subtype-name">Verificação</span></div>
+      <div class="subtype-pill reveal reveal-delay-2"><span class="subtype-emoji">📐</span><span class="subtype-name">Simetria / Exatidão</span></div>
+      <div class="subtype-pill reveal"><span class="subtype-emoji">💭</span><span class="subtype-name">Pensamentos Intrusivos</span></div>
+      <div class="subtype-pill reveal reveal-delay-1"><span class="subtype-emoji">📦</span><span class="subtype-name">Acumulação</span></div>
+      <div class="subtype-pill reveal reveal-delay-2"><span class="subtype-emoji">🙏</span><span class="subtype-name">Escrupulosidade</span></div>
+      <div class="subtype-pill reveal"><span class="subtype-emoji">🫀</span><span class="subtype-name">Somático / Doença</span></div>
+      <div class="subtype-pill reveal reveal-delay-1"><span class="subtype-emoji">💑</span><span class="subtype-name">Relacional / TOCD</span></div>
+    </div>
+  </section>
+
+  <!-- PROTOCOLO -->
+  <section id="protocolo" class="protocol">
+    <div class="section-tag reveal">O protocolo</div>
+    <h2 class="reveal reveal-delay-1">Seis semanas<br/><em>com estrutura clínica.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Cada notificação, cada exercício e cada marco segue lógica baseada em dias de uso e dados reais do seu progresso.</p>
+    <div class="protocol-steps">
+      <div class="protocol-step reveal"><div class="step-num">1</div><div class="step-content"><div class="step-title">Avaliação e mapeamento</div><div class="step-desc">Seleção de subtipos, Y-BOCS simplificado, mapeamento de gatilhos e baseline clínico. Tudo antes do primeiro exercício.</div><span class="step-tag">Onboarding · 10 minutos</span></div></div>
+      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">2</div><div class="step-content"><div class="step-title">Registro de episódios</div><div class="step-desc">Logar gatilhos, SUDS, nível de resistência e compulsão realizada. Esses dados alimentam toda a análise longitudinal.</div><span class="step-tag">Diário · Diariamente</span></div></div>
+      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">3</div><div class="step-content"><div class="step-title">Sessões ERP guiadas</div><div class="step-desc">Hierarquia progressiva. Cada exercício desbloqueado após resposta confirmada no anterior. Curva em tempo real.</div><span class="step-tag">ERP · 3-5x por semana</span></div></div>
+      <div class="protocol-step reveal"><div class="step-num">4</div><div class="step-content"><div class="step-title">Notificações inteligentes</div><div class="step-desc">D+3 confirmação de início, D+7 resumo, D+14 sinal precoce, D+28 reavaliação, D+42 check de plateau. Uma lógica, não alarmes aleatórios.</div><span class="step-tag">Longitudinal · 6 semanas</span></div></div>
+      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">5</div><div class="step-content"><div class="step-title">Relatório para seu terapeuta</div><div class="step-desc">SUDS médio semanal, taxa de resistência, sessões ERP realizadas. Dados objetivos que potencializam a terapia presencial.</div><span class="step-tag">Relatório · Mensal</span></div></div>
+      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">6</div><div class="step-content"><div class="step-title">Manutenção e prevenção de recaída</div><div class="step-desc">Plano de continuidade com exposições de reforço, revisão da hierarquia e sinais de risco para consolidar o aprendizado.</div><span class="step-tag">Manutenção · Pós 6 semanas</span></div></div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="lista-espera" class="cta-final">
+    <div class="section-tag" style="color:rgba(183,228,199,0.85)">Lançamento em breve</div>
+    <h2>Seja um dos primeiros<br/><em>a quebrar o ciclo.</em></h2>
+    <p class="section-sub">O TOCLivre está em fase final de desenvolvimento. Entre na lista de espera e seja notificado no lançamento.</p>
+    <form id="waitlist-form" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:480px;margin:0 auto 32px;">
+      <input type="email" id="email-input" name="email" placeholder="seu@email.com" autocomplete="email" inputmode="email" required
+        aria-label="Seu e-mail para entrar na lista de espera"
+        style="flex:1;min-width:200px;padding:16px 22px;border-radius:100px;
+               font-family:'DM Sans',sans-serif;font-size:15px;outline:none;
+               background:rgba(255,255,255,0.12);color:white;
+               border:1.5px solid rgba(255,255,255,0.25);"/>
+      <button type="submit" class="btn-white">Entrar na lista</button>
+    </form>
+    <p style="font-size:12px;color:rgba(255,255,255,0.38);">Sem spam. Apenas o aviso de lançamento e acesso antecipado.</p>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>O TOCLivre é um aplicativo de bem-estar e autoconhecimento. Não é um dispositivo médico, não realiza diagnósticos e não substitui avaliação ou tratamento por profissional de saúde mental licenciado. Se você estiver em risco ou com sintomas graves, procure ajuda médica imediata.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <svg class="logo-mark" width="42" height="42" aria-hidden="true"><use href="#toclivre-logo-dark"/></svg>
+          <div class="footer-logo">TOC<span>Livre</span></div>
+        </div>
+        <div class="footer-tagline">App de bem-estar baseado em ERP. Em português, para quem precisa.</div>
+      </div>
+      <div class="footer-links">
+        <h4>App</h4>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#subtypes">Subtipos</a>
+        <a href="#protocolo">Protocolo</a>
+        <a href="#lista-espera">Lista de espera</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">LGPD</a>
+        <a href="mailto:contato@toclivre.com.br">contato@toclivre.com.br</a>
+      </div>
+      <div class="footer-links">
+        <h4>Redes</h4>
+        <a href="https://instagram.com/toclivre">@toclivre no Instagram</a>
+        <a href="https://tiktok.com/@toclivre">@toclivre no TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 TOCLivre. Todos os direitos reservados.</div>
+      <div class="footer-disclaimer">Aplicativo de bem-estar · Não é dispositivo médico · Não substitui profissional de saúde mental</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    setTimeout(() => document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible')), 100);
+
+    // Waitlist form
+    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!document.getElementById('email-input').value.trim()) return;
+      this.setAttribute('aria-live', 'polite');
+      this.innerHTML = '<div style="text-align:center;color:white;padding:20px"><div style="font-size:32px;margin-bottom:12px">✓</div><div style="font-family:Fraunces,serif;font-size:22px;font-weight:900;margin-bottom:8px">Na lista!</div><div style="font-size:14px;opacity:0.75">Você será notificado quando o TOCLivre for lançado.</div></div>';
+    });
+
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+    });
+  </script>
+</body>
+</html>
