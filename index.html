@@ -611,7 +611,7 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     setTimeout(() => document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible')), 100);
 
-    // Waitlist form — integração Brevo
+    // Waitlist form — integração Formspree
     document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const email = document.getElementById('email-input').value.trim();
@@ -622,36 +622,21 @@
       btn.disabled = true;
 
       try {
-        const res = await fetch('https://api.brevo.com/v3/contacts', {
+        const res = await fetch('https://formspree.io/f/mlgwqrna', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'api-key': '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'
-          },
-          body: JSON.stringify({
-            email: email,
-            attributes: { FONTE: 'landing-fundador' },
-            updateEnabled: true
-          })
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, fonte: 'acesso-fundador' })
         });
 
-        // 201 = criado, 204 = atualizado — ambos são sucesso
-        if (res.status === 201 || res.status === 204) {
+        if (res.ok) {
           mostrarSucesso(this);
         } else {
-          const data = await res.json();
-          // Contato já existe — tudo bem
-          if (data.code === 'duplicate_parameter') {
-            mostrarSucesso(this);
-          } else {
-            throw new Error(data.message);
-          }
+          throw new Error('Erro ao enviar');
         }
       } catch (err) {
         btn.textContent = 'Garantir acesso fundador — R$19,90/mês';
         btn.disabled = false;
         alert('Algo deu errado. Tente novamente ou mande email para contato@toclivre.com.br');
-        console.error(err);
       }
     });
 
