@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TOCLivre — Protocolo ERP para Transtorno Obsessivo-Compulsivo</title>
-  <meta name="description" content="App de bem-estar baseado em Exposição e Prevenção de Resposta (ERP). Quebre o ciclo compulsivo com protocolo baseado em evidências."/>
-  <meta property="og:title" content="TOCLivre — Quebre o ciclo compulsivo"/>
-  <meta property="og:description" content="Protocolo ERP guiado, acompanhamento longitudinal e protocolo de crise. Em português, para o Brasil."/>
+  <title>TOCLivre — Programa ERP para Transtorno Obsessivo-Compulsivo</title>
+  <meta name="description" content="Programa digital de bem-estar baseado em Exposição e Prevenção de Resposta (ERP) — padrão-ouro internacional para TOC. Desenvolvido por psiquiatra. Em português."/>
+  <meta property="og:title" content="TOCLivre — Programa ERP para TOC"/>
+  <meta property="og:description" content="ERP estruturado, acompanhamento longitudinal e base clínica sólida. Em português, para o Brasil."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="https://SEU-DOMINIO/og-toclivre.jpg"/>
+  <meta property="og:image" content="https://www.toclivre.com.br/og-toclivre.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="TOCLivre — Quebre o ciclo compulsivo"/>
-  <meta name="twitter:description" content="Protocolo ERP guiado, acompanhamento longitudinal e protocolo de crise. Em português, para o Brasil."/>
-  <meta name="twitter:image" content="https://SEU-DOMINIO/og-toclivre.jpg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -23,7 +20,6 @@
       --green:     #2D6A4F;
       --greenMid:  #40916C;
       --greenLight:#B7E4C7;
-      --amber:     #C8761A;
       --ink:       #1A1A2E;
       --inkMid:    #5C5470;
       --inkDim:    #9E97B0;
@@ -35,11 +31,9 @@
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
 
-    /* ─── LOGO MARK ─── */
     .logo-mark { display: block; flex: 0 0 auto; }
     .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 
-    /* ─── SCROLL ANIMATIONS ─── */
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -47,7 +41,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
 
-    /* ─── NAV ─── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 18px 48px;
@@ -62,34 +55,19 @@
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-links a { font-size: 14px; font-weight: 500; color: var(--inkMid); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--green); }
-    .nav-cta {
-      background: var(--green); color: var(--white) !important;
-      padding: 10px 22px; border-radius: 100px; font-weight: 600 !important;
-      transition: all 0.2s !important; text-decoration: none;
-      display: inline-flex; align-items: center; white-space: nowrap;
-    }
+    .nav-cta { background: var(--green); color: var(--white) !important; padding: 10px 22px; border-radius: 100px; font-weight: 600 !important; transition: all 0.2s !important; text-decoration: none; display: inline-flex; align-items: center; white-space: nowrap; }
     .nav-cta:hover { background: var(--greenMid) !important; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(45,106,79,0.25); }
     .nav-cta-mobile { display: none; }
 
-    /* ─── HERO ─── */
     .hero { min-height: 100vh; padding: 130px 48px 80px; display: flex; align-items: center; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; z-index: 0; background: var(--bg); }
     .hero-shape { position: absolute; border-radius: 999px; border: 1px solid rgba(45,106,79,0.12); background: rgba(45,106,79,0.03); animation: breathe 8s ease-in-out infinite; }
     .hero-shape.s1 { width: 620px; height: 620px; right: -140px; top: 50%; transform: translateY(-50%); }
     .hero-shape.s2 { width: 460px; height: 460px; right: -60px; top: 50%; transform: translateY(-50%); animation-delay: 1s; }
     .hero-shape.s3 { width: 260px; height: 260px; right: 80px; top: 50%; transform: translateY(-50%); animation-delay: 2s; background: rgba(45,106,79,0.05); }
-    @keyframes breathe {
-      0%, 100% { opacity: 0.55; transform: translateY(-50%) scale(1); }
-      50% { opacity: 1; transform: translateY(-50%) scale(1.02); }
-    }
+    @keyframes breathe { 0%, 100% { opacity: 0.55; transform: translateY(-50%) scale(1); } 50% { opacity: 1; transform: translateY(-50%) scale(1.02); } }
     .hero-content { position: relative; z-index: 1; max-width: 620px; }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(45,106,79,0.10); border: 1px solid rgba(45,106,79,0.20);
-      padding: 7px 16px; border-radius: 100px;
-      font-size: 12px; font-weight: 600; color: var(--green);
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px;
-    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(45,106,79,0.10); border: 1px solid rgba(45,106,79,0.20); padding: 7px 16px; border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--green); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 28px; }
     .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: pulse 2s ease-in-out infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.3); } }
     h1 { font-family: var(--serif); font-size: clamp(48px, 7vw, 82px); font-weight: 900; line-height: 0.95; letter-spacing: -0.04em; color: var(--ink); margin-bottom: 24px; }
@@ -104,14 +82,12 @@
     .stat-num { font-family: var(--serif); font-size: 36px; font-weight: 900; color: var(--green); line-height: 1; letter-spacing: -0.03em; }
     .stat-label { font-size: 12px; font-weight: 500; color: var(--inkDim); margin-top: 4px; line-height: 1.4; }
 
-    /* ─── SECTIONS ─── */
     section { padding: 100px 48px; }
     .section-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
     h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 52px); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin-bottom: 20px; }
     h2 em { font-style: italic; color: var(--green); }
     .section-sub { font-size: 17px; line-height: 1.65; color: var(--inkMid); max-width: 560px; margin-bottom: 56px; }
 
-    /* ─── PROBLEM ─── */
     .problem { background: var(--ink); }
     .problem .section-tag { color: var(--greenLight); }
     .problem h2 { color: var(--white); }
@@ -124,7 +100,6 @@
     .problem-text { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.72); }
     .problem-text strong { color: var(--white); }
 
-    /* ─── FEATURES ─── */
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
     .feature-card { background: var(--white); border-radius: 24px; padding: 36px 32px; border: 1px solid rgba(45,106,79,0.08); transition: all 0.3s; position: relative; overflow: hidden; }
     .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--green); opacity: 0; transition: opacity 0.3s; }
@@ -134,7 +109,6 @@
     .feature-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
     .feature-desc { font-size: 14px; line-height: 1.65; color: var(--inkMid); }
 
-    /* ─── PROTOCOL ─── */
     .protocol { background: var(--bg2); }
     .protocol-steps { display: flex; flex-direction: column; max-width: 700px; }
     .protocol-step { display: flex; gap: 28px; align-items: flex-start; padding-bottom: 40px; position: relative; }
@@ -144,24 +118,61 @@
     .step-desc { font-size: 14px; line-height: 1.7; color: var(--inkMid); }
     .step-tag { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; background: rgba(45,106,79,0.10); color: var(--green); }
 
-    /* ─── QUOTE ─── */
     .quote-section { background: #0D1F16; text-align: center; }
     blockquote { font-family: var(--serif); font-size: clamp(24px, 3.5vw, 42px); font-weight: 400; font-style: italic; line-height: 1.3; color: var(--white); max-width: 800px; margin: 0 auto 32px; letter-spacing: -0.02em; }
     blockquote em { color: var(--greenLight); font-style: normal; }
     .quote-attr { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45); letter-spacing: 0.05em; }
 
-    /* ─── SUBTYPES ─── */
     .subtypes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
     .subtype-pill { background: var(--white); border: 1px solid rgba(45,106,79,0.10); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
     .subtype-pill:hover { border-color: var(--green); background: rgba(45,106,79,0.05); transform: translateY(-2px); }
     .subtype-emoji { font-size: 22px; }
     .subtype-name { font-size: 13px; font-weight: 600; color: var(--ink); }
 
-    /* ─── DISCLAIMER ─── */
-    .disclaimer { background: var(--bg2); padding: 32px 48px; text-align: center; }
-    .disclaimer p { font-size: 11.5px; color: var(--inkDim); line-height: 1.7; max-width: 780px; margin: 0 auto; }
+    /* Cientista / especialista */
+    .specialist { background: var(--bg2); }
+    .specialist-card { background: var(--white); border-radius: 28px; padding: 48px; border: 1px solid rgba(45,106,79,0.08); max-width: 780px; }
+    .specialist-name { font-family: var(--serif); font-size: 28px; font-weight: 900; color: var(--ink); letter-spacing: -0.02em; margin-bottom: 4px; }
+    .specialist-title { font-size: 13px; font-weight: 600; color: var(--green); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+    .specialist-bio { font-size: 15px; line-height: 1.75; color: var(--inkMid); margin-bottom: 28px; }
 
-    /* ─── CTA FINAL ─── */
+    /* Base científica */
+    .science { background: var(--ink); }
+    .science .section-tag { color: var(--greenLight); }
+    .science h2 { color: var(--white); }
+    .science h2 em { color: var(--greenLight); }
+    .science .section-sub { color: rgba(255,255,255,0.55); }
+    .science-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+    .science-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 32px 28px; }
+    .science-card-title { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .science-card-text { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.65); }
+    .science-ref { font-size: 11px; color: rgba(255,255,255,0.35); margin-top: 14px; font-style: italic; }
+
+    /* Limitações */
+    .limits { background: var(--bg); }
+    .limits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; max-width: 900px; }
+    .limit-card { border-radius: 20px; padding: 28px 24px; }
+    .limit-card.green { background: rgba(45,106,79,0.08); border: 1px solid rgba(45,106,79,0.15); }
+    .limit-card.amber { background: rgba(200,118,26,0.07); border: 1px solid rgba(200,118,26,0.18); }
+    .limit-card.red { background: rgba(192,57,43,0.06); border: 1px solid rgba(192,57,43,0.15); }
+    .limit-label { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .limit-label.green { color: var(--green); }
+    .limit-label.amber { color: #C8761A; }
+    .limit-label.red { color: #C0392B; }
+    .limit-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .limit-text { font-size: 13px; line-height: 1.65; color: var(--inkMid); }
+
+    /* FAQ */
+    .faq-list { max-width: 740px; }
+    .faq-item { border-bottom: 1px solid rgba(45,106,79,0.12); padding: 24px 0; cursor: pointer; }
+    .faq-item:first-child { border-top: 1px solid rgba(45,106,79,0.12); }
+    .faq-q { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 16px; user-select: none; }
+    .faq-q .faq-icon { font-size: 22px; color: var(--green); flex-shrink: 0; transition: transform 0.2s; }
+    .faq-a { font-size: 14px; line-height: 1.75; color: var(--inkMid); max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-item.open .faq-a { max-height: 400px; padding-top: 14px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* CTA fundador */
     .cta-final { background: var(--green); text-align: center; padding: 100px 48px; position: relative; overflow: hidden; }
     .cta-final h2 { color: var(--white); }
     .cta-final h2 em { color: var(--greenLight); }
@@ -169,7 +180,9 @@
     .btn-white { display: inline-flex; align-items: center; gap: 10px; background: var(--white); color: var(--green); padding: 18px 40px; border-radius: 100px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.25s; box-shadow: 0 8px 40px rgba(0,0,0,0.18); border: none; cursor: pointer; }
     .btn-white:hover { transform: translateY(-3px); box-shadow: 0 16px 50px rgba(0,0,0,0.25); }
 
-    /* ─── FOOTER ─── */
+    .disclaimer { background: var(--bg2); padding: 32px 48px; text-align: center; }
+    .disclaimer p { font-size: 11.5px; color: var(--inkDim); line-height: 1.7; max-width: 820px; margin: 0 auto; }
+
     footer { background: var(--ink); padding: 64px 48px 40px; }
     .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px; }
     .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
@@ -183,7 +196,6 @@
     .footer-copy { font-size: 12px; color: rgba(255,255,255,0.28); }
     .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.22); max-width: 520px; line-height: 1.5; text-align: right; }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       nav { padding: 14px 18px; }
       .nav-links { display: none; }
@@ -196,6 +208,7 @@
       .cta-final { padding: 72px 24px; }
       footer { padding: 48px 24px 32px; }
       .footer-disclaimer { text-align: left; }
+      .specialist-card { padding: 28px 24px; }
     }
   </style>
 </head>
@@ -235,8 +248,8 @@
     </a>
     <div class="nav-links">
       <a href="#como-funciona">Como funciona</a>
-      <a href="#subtypes">Subtipos</a>
-      <a href="#protocolo">Protocolo</a>
+      <a href="#base-cientifica">Base científica</a>
+      <a href="#especialista">Especialista</a>
       <a href="#lista-espera" class="nav-cta">Acesso fundador</a>
     </div>
     <a href="#lista-espera" class="nav-cta nav-cta-mobile">Acesso fundador</a>
@@ -251,10 +264,12 @@
     <div class="hero-content">
       <div class="hero-badge reveal">
         <span class="badge-dot" aria-hidden="true"></span>
-        Protocolo ERP · Em português
+        Programa ERP · Desenvolvido por psiquiatra
       </div>
       <h1 class="reveal reveal-delay-1">Quebre<br/>o ciclo<br/><em>compulsivo.</em></h1>
-      <p class="hero-sub reveal reveal-delay-2">App de bem-estar com exercícios baseados em Exposição e Prevenção de Resposta — o protocolo com maior evidência científica para pensamentos obsessivos e comportamentos repetitivos.</p>
+      <p class="hero-sub reveal reveal-delay-2">
+        Programa digital de bem-estar baseado em Exposição e Prevenção de Resposta (ERP) — intervenção com maior suporte empírico para TOC segundo APA, NICE e diretrizes internacionais. Em português, para o Brasil.
+      </p>
       <div class="hero-actions reveal reveal-delay-3">
         <a href="#lista-espera" class="btn-primary">
           Garantir acesso fundador
@@ -263,7 +278,7 @@
         <a href="#como-funciona" class="btn-ghost">Ver como funciona</a>
       </div>
       <div class="hero-stats reveal reveal-delay-4">
-        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">subtipos de TOC<br/>cobertos</div></div>
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">subtipos de TOC<br/>com exercícios específicos</div></div>
         <div class="stat-item"><div class="stat-num">42+</div><div class="stat-label">exercícios ERP<br/>estruturados</div></div>
         <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">em português<br/>para o Brasil</div></div>
       </div>
@@ -272,42 +287,114 @@
 
   <!-- PROBLEMA -->
   <section class="problem">
-    <div class="section-tag reveal">O problema que ninguém resolve</div>
-    <h2 class="reveal reveal-delay-1">Tratamento de TOC no Brasil<br/><em>tem um gap enorme.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">2,3% da população mundial tem TOC. No Brasil, o acesso a especialistas em TCC/ERP é caro, escasso e concentrado nos grandes centros.</p>
+    <div class="section-tag reveal">O contexto brasileiro</div>
+    <h2 class="reveal reveal-delay-1">Acesso a ERP no Brasil<br/><em>ainda é um privilégio.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">TOC afeta cerca de 2,3% da população mundial. No Brasil, a maioria não acessa tratamento especializado — por custo, distância ou desconhecimento.</p>
     <div class="problem-grid">
-      <div class="problem-item reveal"><div class="problem-num">17</div><div class="problem-text"><strong>anos</strong> é o tempo médio entre o início dos sintomas e o diagnóstico correto de TOC no Brasil.</div></div>
-      <div class="problem-item reveal reveal-delay-1"><div class="problem-num">Poucos</div><div class="problem-text"><strong>apps em português</strong> oferecem um protocolo ERP realmente estruturado e orientado por dados.</div></div>
-      <div class="problem-item reveal reveal-delay-2"><div class="problem-num">R$350+</div><div class="problem-text"><strong>por sessão</strong> com especialista em TCC/ERP em São Paulo. Inacessível para a maioria.</div></div>
+      <div class="problem-item reveal">
+        <div class="problem-num">17</div>
+        <div class="problem-text"><strong>anos</strong> é o tempo médio entre início dos sintomas e diagnóstico correto de TOC, segundo literatura epidemiológica brasileira.</div>
+      </div>
+      <div class="problem-item reveal reveal-delay-1">
+        <div class="problem-num">~2,3%</div>
+        <div class="problem-text"><strong>da população</strong> tem TOC. A maioria nunca terá acesso a um especialista em TCC/ERP durante a vida.</div>
+      </div>
+      <div class="problem-item reveal reveal-delay-2">
+        <div class="problem-num">R$350+</div>
+        <div class="problem-text"><strong>por sessão</strong> com terapeuta especializado em ERP nos grandes centros urbanos. Recurso inacessível para a maior parte da população.</div>
+      </div>
     </div>
   </section>
 
   <!-- COMO FUNCIONA -->
   <section id="como-funciona">
     <div class="section-tag reveal">Como funciona</div>
-    <h2 class="reveal reveal-delay-1">Não é meditação.<br/><em>É protocolo.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">O TOCLivre é construído sobre ERP — a abordagem com maior evidência científica para TOC. Cada exercício, cada sessão, cada notificação segue lógica clínica.</p>
+    <h2 class="reveal reveal-delay-1">Não é meditação.<br/><em>É protocolo clínico.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">O TOCLivre é um programa de bem-estar estruturado sobre ERP — cada exercício, sessão e notificação segue lógica baseada em literatura clínica. Não substitui psicoterapia, mas pode complementá-la e ampliar seu acesso.</p>
     <div class="features-grid">
-      <div class="feature-card reveal"><div class="feature-icon">📊</div><div class="feature-title">Avaliação Y-BOCS integrada</div><div class="feature-desc">Baseline clínico no onboarding. Reavaliação automática a cada 28 dias para medir sua resposta objetiva ao protocolo.</div></div>
-      <div class="feature-card reveal reveal-delay-1"><div class="feature-icon">⏱️</div><div class="feature-title">Sessão ERP com curva em tempo real</div><div class="feature-desc">Veja a curva de habituação sendo desenhada durante a exposição. Cada check-in a cada 2 minutos cria seu dado clínico real.</div></div>
-      <div class="feature-card reveal reveal-delay-2"><div class="feature-icon">🧠</div><div class="feature-title">Compulsões mentais como alvo</div><div class="feature-desc">Ruminação, neutralização, contagem, verificação de memória. O app trata o que os outros ignoram — as compulsões invisíveis.</div></div>
-      <div class="feature-card reveal reveal-delay-3"><div class="feature-icon">⚡</div><div class="feature-title">Protocolo de crise</div><div class="feature-desc">SUDS ≥ 8 ativa sequência estruturada de regulação e grounding, sem reassurance embutido.</div></div>
-      <div class="feature-card reveal"><div class="feature-icon">📈</div><div class="feature-title">Evolução longitudinal</div><div class="feature-desc">Curva semanal do SUDS médio, taxa de resistência, marcos clínicos e notificações calibradas por dias de uso.</div></div>
-      <div class="feature-card reveal reveal-delay-1"><div class="feature-icon">🔒</div><div class="feature-title">LGPD compliant</div><div class="feature-desc">Dados sensíveis com consentimento granular e portabilidade. Sem vender seus dados.</div></div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Avaliação Y-BOCS integrada</div>
+        <div class="feature-desc">Baseline clínico no onboarding com escala Y-BOCS simplificada. Reavaliação automática a cada 28 dias para monitoramento objetivo do progresso.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">⏱️</div>
+        <div class="feature-title">Sessão ERP com curva de habituação</div>
+        <div class="feature-desc">Registro de SUDS a cada 2 minutos durante a exposição, gerando curva de habituação em tempo real. Dados clínicos reais, não apenas registro subjetivo.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">Compulsões mentais como alvo</div>
+        <div class="feature-desc">Ruminação, neutralização, checagem mental e contagem são compulsões frequentemente ignoradas por apps genéricos. O TOCLivre as trata como alvo clínico explícito.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Suporte a momentos de alta angústia</div>
+        <div class="feature-desc">SUDS ≥ 8 ativa sequência de regulação baseada em técnicas validadas: respiração diafragmática, grounding e defusão cognitiva. Sem reassurance embutido.</div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">📈</div>
+        <div class="feature-title">Acompanhamento longitudinal</div>
+        <div class="feature-desc">Curva semanal do SUDS médio, taxa de prevenção de resposta e marcos clínicos ao longo de 6 semanas. Dados exportáveis para seu terapeuta.</div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">Privacidade e LGPD</div>
+        <div class="feature-desc">Dados de saúde tratados como categoria sensível conforme LGPD. Consentimento granular, criptografia local, portabilidade garantida. Seus dados não são comercializados.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BASE CIENTÍFICA -->
+  <section id="base-cientifica" class="science">
+    <div class="section-tag reveal">Base científica</div>
+    <h2 class="reveal reveal-delay-1">ERP é o<br/><em>padrão-ouro.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">O TOCLivre é construído sobre décadas de pesquisa clínica consolidada, não sobre tendências ou autoajuda.</p>
+    <div class="science-grid">
+      <div class="science-card reveal">
+        <div class="science-card-title">O que é ERP</div>
+        <div class="science-card-text">Exposição e Prevenção de Resposta é uma modalidade de Terapia Cognitivo-Comportamental que consiste em exposição sistemática a estímulos ansiogênicos com prevenção da resposta compulsiva. O mecanismo central é o aprendizado inibitório — não a habituação simples.</div>
+        <div class="science-ref">Craske et al., 2014 — Behaviour Research and Therapy</div>
+      </div>
+      <div class="science-card reveal reveal-delay-1">
+        <div class="science-card-title">Diretrizes internacionais</div>
+        <div class="science-card-text">ERP é recomendada como primeira linha de tratamento para TOC pela American Psychological Association (APA), pelo National Institute for Health and Care Excellence (NICE/UK) e pela International OCD Foundation (IOCDF).</div>
+        <div class="science-ref">NICE Guidelines TA31 · APA Practice Guidelines · IOCDF Clinical Practice</div>
+      </div>
+      <div class="science-card reveal reveal-delay-2">
+        <div class="science-card-title">Evidência para formato digital</div>
+        <div class="science-card-text">Estudos controlados demonstram eficácia de programas de ERP autoguiados e digitalmente mediados, especialmente como complemento à psicoterapia presencial ou para casos leves a moderados sem acesso a especialista.</div>
+        <div class="science-ref">Wootton et al., 2013 · Andersson et al., 2012 — Journal of Anxiety Disorders</div>
+      </div>
+      <div class="science-card reveal">
+        <div class="science-card-title">Escala Y-BOCS</div>
+        <div class="science-card-text">A Yale-Brown Obsessive Compulsive Scale (Y-BOCS) é o instrumento de referência para avaliação de severidade do TOC, utilizado em pesquisa clínica e prática especializada globalmente. O TOCLivre usa versão simplificada para automonitoramento.</div>
+        <div class="science-ref">Goodman et al., 1989 — Archives of General Psychiatry</div>
+      </div>
+      <div class="science-card reveal reveal-delay-1">
+        <div class="science-card-title">Aprendizado inibitório</div>
+        <div class="science-card-text">O mecanismo contemporâneo que fundamenta a ERP não é simplesmente "habituar à ansiedade", mas aprender que o estímulo temido não prediz o desfecho catastrófico antecipado — criando memória inibitória competitiva.</div>
+        <div class="science-ref">Craske et al., 2008 — Behaviour Research and Therapy</div>
+      </div>
+      <div class="science-card reveal reveal-delay-2">
+        <div class="science-card-title">Limitações do formato digital</div>
+        <div class="science-card-text">Programas digitais não replicam a relação terapêutica, a individualização clínica aprofundada nem o manejo de casos complexos. São mais eficazes em contexto complementar à psicoterapia ou para casos leves com boa autoconsciência.</div>
+        <div class="science-ref">Posição do próprio TOCLivre — transparência científica</div>
+      </div>
     </div>
   </section>
 
   <!-- QUOTE -->
   <section class="quote-section">
-    <blockquote class="reveal">"A ansiedade não diminui porque você cedeu à compulsão. Ela diminui porque você <em>tolerou</em>."</blockquote>
-    <div class="quote-attr reveal reveal-delay-1">PRINCÍPIO DO APRENDIZADO INIBITÓRIO · BASE CIENTÍFICA DO ERP</div>
+    <blockquote class="reveal">"A ansiedade não diminui porque você cedeu à compulsão. Ela diminui porque você <em>tolerou</em> — e aprendeu que o desfecho temido não ocorreu."</blockquote>
+    <div class="quote-attr reveal reveal-delay-1">APRENDIZADO INIBITÓRIO — CRASKE ET AL., 2014 · BASE CIENTÍFICA DO ERP</div>
   </section>
 
   <!-- SUBTIPOS -->
   <section id="subtypes">
     <div class="section-tag reveal">Subtipos cobertos</div>
-    <h2 class="reveal reveal-delay-1">Seu subtipo tem<br/><em>exercícios específicos.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Cada subtipo tem hierarquia própria com exposições in vivo, imaginais e focadas em compulsões mentais.</p>
+    <h2 class="reveal reveal-delay-1">Seu subtipo tem<br/><em>hierarquia específica.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Cada subtipo tem hierarquia de exposições própria — in vivo, imaginais, interoceptivas e voltadas a compulsões mentais. O programa não é genérico.</p>
     <div class="subtypes-grid">
       <div class="subtype-pill reveal"><span class="subtype-emoji">🧼</span><span class="subtype-name">Contaminação</span></div>
       <div class="subtype-pill reveal reveal-delay-1"><span class="subtype-emoji">🔒</span><span class="subtype-name">Verificação</span></div>
@@ -324,75 +411,135 @@
   <section id="protocolo" class="protocol">
     <div class="section-tag reveal">O protocolo</div>
     <h2 class="reveal reveal-delay-1">Seis semanas<br/><em>com estrutura clínica.</em></h2>
-    <p class="section-sub reveal reveal-delay-2">Cada notificação, cada exercício e cada marco segue lógica baseada em dias de uso e dados reais do seu progresso.</p>
+    <p class="section-sub reveal reveal-delay-2">Cada notificação, exercício e marco segue lógica baseada em dias de uso e dados reais do progresso — não alarmes aleatórios.</p>
     <div class="protocol-steps">
-      <div class="protocol-step reveal"><div class="step-num">1</div><div class="step-content"><div class="step-title">Avaliação e mapeamento</div><div class="step-desc">Seleção de subtipos, Y-BOCS simplificado, mapeamento de gatilhos e baseline clínico. Tudo antes do primeiro exercício.</div><span class="step-tag">Onboarding · 10 minutos</span></div></div>
-      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">2</div><div class="step-content"><div class="step-title">Registro de episódios</div><div class="step-desc">Logar gatilhos, SUDS, nível de resistência e compulsão realizada. Esses dados alimentam toda a análise longitudinal.</div><span class="step-tag">Diário · Diariamente</span></div></div>
-      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">3</div><div class="step-content"><div class="step-title">Sessões ERP guiadas</div><div class="step-desc">Hierarquia progressiva. Cada exercício desbloqueado após resposta confirmada no anterior. Curva em tempo real.</div><span class="step-tag">ERP · 3-5x por semana</span></div></div>
-      <div class="protocol-step reveal"><div class="step-num">4</div><div class="step-content"><div class="step-title">Notificações inteligentes</div><div class="step-desc">D+3 confirmação de início, D+7 resumo, D+14 sinal precoce, D+28 reavaliação, D+42 check de plateau. Uma lógica, não alarmes aleatórios.</div><span class="step-tag">Longitudinal · 6 semanas</span></div></div>
-      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">5</div><div class="step-content"><div class="step-title">Relatório para seu terapeuta</div><div class="step-desc">SUDS médio semanal, taxa de resistência, sessões ERP realizadas. Dados objetivos que potencializam a terapia presencial.</div><span class="step-tag">Relatório · Mensal</span></div></div>
-      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">6</div><div class="step-content"><div class="step-title">Manutenção e prevenção de recaída</div><div class="step-desc">Plano de continuidade com exposições de reforço, revisão da hierarquia e sinais de risco para consolidar o aprendizado.</div><span class="step-tag">Manutenção · Pós 6 semanas</span></div></div>
+      <div class="protocol-step reveal"><div class="step-num">1</div><div class="step-content"><div class="step-title">Avaliação e mapeamento</div><div class="step-desc">Seleção de subtipos, Y-BOCS simplificado, mapeamento de gatilhos e baseline clínico. Nenhum exercício antes da avaliação completa.</div><span class="step-tag">Onboarding · 10 minutos</span></div></div>
+      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">2</div><div class="step-content"><div class="step-title">Registro de episódios</div><div class="step-desc">Log de gatilhos, SUDS, nível de prevenção de resposta e compulsão realizada. Esses dados alimentam toda a análise longitudinal e o relatório para o terapeuta.</div><span class="step-tag">Diário · Contínuo</span></div></div>
+      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">3</div><div class="step-content"><div class="step-title">Sessões ERP guiadas</div><div class="step-desc">Hierarquia progressiva com desbloqueio baseado em habituação confirmada. Curva de SUDS em tempo real. Exposição sem reassurance embutido.</div><span class="step-tag">ERP · 3–5x por semana</span></div></div>
+      <div class="protocol-step reveal"><div class="step-num">4</div><div class="step-content"><div class="step-title">Notificações clínicas</div><div class="step-desc">D+3 confirmação, D+7 resumo, D+14 sinal precoce, D+28 reavaliação Y-BOCS, D+42 check de plateau. Lógica clínica, não gamificação.</div><span class="step-tag">Longitudinal · 6 semanas</span></div></div>
+      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">5</div><div class="step-content"><div class="step-title">Relatório para o terapeuta</div><div class="step-desc">SUDS médio semanal, taxa de prevenção de resposta, sessões realizadas e habituações confirmadas. Dados objetivos para potencializar sessões presenciais.</div><span class="step-tag">Relatório · Mensal</span></div></div>
+      <div class="protocol-step reveal reveal-delay-2"><div class="step-num">6</div><div class="step-content"><div class="step-title">Manutenção e prevenção de recaída</div><div class="step-desc">Plano de continuidade com exposições de reforço, revisão da hierarquia e identificação de sinais de risco para consolidar o aprendizado.</div><span class="step-tag">Manutenção · Pós 6 semanas</span></div></div>
     </div>
   </section>
 
-  <!-- CTA FINAL — ACESSO FUNDADOR -->
+  <!-- DESENVOLVIDO POR ESPECIALISTA -->
+  <section id="especialista" class="specialist">
+    <div class="section-tag reveal">Desenvolvido por especialista</div>
+    <h2 class="reveal reveal-delay-1">Clínica real.<br/><em>Não é autoajuda.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">O TOCLivre não foi criado por desenvolvedores de software com interesse em saúde mental. Foi criado de dentro da prática clínica.</p>
+    <div class="specialist-card reveal">
+      <div class="specialist-name">Dr. Elzio</div>
+      <div class="specialist-title">Psiquiatra · Especialista em TOC e Transtornos de Ansiedade</div>
+      <div class="specialist-bio">
+        Médico psiquiatra com experiência clínica no diagnóstico e tratamento de TOC e transtornos de ansiedade. A percepção diária do gap entre a necessidade de tratamento especializado em ERP e a escassez de acesso a ele — especialmente para pacientes fora dos grandes centros e sem condições de arcar com psicoterapia privada especializada — foi o que motivou o desenvolvimento do TOCLivre.
+        <br/><br/>
+        O programa foi construído com rigor clínico, consultando literatura internacional e diretrizes da APA, NICE e IOCDF. Não é um app de meditação ou bem-estar genérico — é um programa estruturado com lógica clínica real, projetado para complementar, e não substituir, o cuidado profissional.
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;background:rgba(45,106,79,0.10);color:var(--green);">Medicina · CRM ativo</span>
+        <span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;background:rgba(45,106,79,0.10);color:var(--green);">Psiquiatria</span>
+        <span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;background:rgba(45,106,79,0.10);color:var(--green);">TOC e Transtornos de Ansiedade</span>
+        <span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;background:rgba(45,106,79,0.10);color:var(--green);">TCC / ERP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMITAÇÕES E RESPONSABILIDADE -->
+  <section class="limits">
+    <div class="section-tag reveal">Limitações e responsabilidade</div>
+    <h2 class="reveal reveal-delay-1">Para quem é —<br/><em>e para quem não é.</em></h2>
+    <p class="section-sub reveal reveal-delay-2">Transparência clínica é parte do nosso compromisso. O TOCLivre tem indicações e contraindicações claras.</p>
+    <div class="limits-grid">
+      <div class="limit-card green reveal">
+        <div class="limit-label green">✓ Indicado para</div>
+        <div class="limit-title">Casos leves a moderados</div>
+        <div class="limit-text">Adultos com TOC leve a moderado que buscam estrutura para praticar ERP de forma autônoma, complementar psicoterapia em curso, ou que não têm acesso a especialista presencial.</div>
+      </div>
+      <div class="limit-card amber reveal reveal-delay-1">
+        <div class="limit-label amber">⚠ Use com acompanhamento</div>
+        <div class="limit-title">Casos moderados a graves</div>
+        <div class="limit-text">TOC moderado a grave se beneficia mais quando o programa é usado em conjunto com psicoterapia especializada. O app pode ser um recurso complementar valioso, mas não suficiente isoladamente.</div>
+      </div>
+      <div class="limit-card red reveal reveal-delay-2">
+        <div class="limit-label red">✗ Não indicado para</div>
+        <div class="limit-title">Crises e casos complexos</div>
+        <div class="limit-text">Ideação suicida, comorbidades psiquiátricas graves não tratadas, TOC grave incapacitante ou situações de crise aguda requerem avaliação e acompanhamento profissional presencial imediato.</div>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:24px 28px;background:rgba(45,106,79,0.06);border:1px solid rgba(45,106,79,0.15);border-radius:16px;max-width:900px;" class="reveal">
+      <p style="font-size:13px;line-height:1.75;color:var(--inkMid);">
+        <strong style="color:var(--ink);">Em situação de crise:</strong> Se você estiver com pensamentos de se machucar ou em sofrimento agudo, interrompa o uso do app e busque ajuda imediatamente. CVV: <strong>188</strong> (24h, gratuito). UPA ou PS mais próximo. Médico psiquiatra de referência.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ CLÍNICO -->
+  <section style="background:var(--bg2);">
+    <div class="section-tag reveal">Perguntas frequentes</div>
+    <h2 class="reveal reveal-delay-1">Dúvidas<br/><em>frequentes.</em></h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">O TOCLivre substitui a psicoterapia? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Não. O TOCLivre é um programa de bem-estar digital — não é psicoterapia, não cria vínculo terapêutico e não substitui a avaliação e o acompanhamento de profissional licenciado. Ele é mais eficaz quando usado como complemento à terapia presencial ou como recurso estruturado para quem ainda não tem acesso a especialista.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Preciso ter diagnóstico de TOC para usar? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Recomendamos que o uso seja feito com conhecimento de um profissional de saúde. O programa é voltado a adultos que já receberam diagnóstico de TOC ou que reconhecem em si mesmos padrões obsessivo-compulsivos significativos. Em caso de dúvida, consulte um psiquiatra ou psicólogo antes de iniciar.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">ERP digital tem eficácia comprovada? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Sim. Estudos controlados demonstram que programas de ERP autoguiados e digitalmente mediados produzem resultados significativos, especialmente para casos leves a moderados. A eficácia é menor que o formato presencial com terapeuta especializado, mas superior a ausência de tratamento. Referências disponíveis na seção "Base científica".</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Meus dados de saúde estão seguros? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Sim. Dados de saúde são tratados como categoria sensível conforme a LGPD (Lei 13.709/2018). O app utiliza criptografia local, consentimento informado granular e portabilidade garantida. Seus dados não são vendidos, compartilhados com terceiros nem utilizados para fins publicitários.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">O que é a escala Y-BOCS usada no app? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Y-BOCS (Yale-Brown Obsessive Compulsive Scale) é o instrumento de referência internacional para avaliar a severidade do TOC, desenvolvido em 1989 e utilizado globalmente em pesquisa clínica e prática especializada. O TOCLivre usa uma versão simplificada para automonitoramento — não substitui a aplicação por profissional treinado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Posso usar junto com medicação psiquiátrica? <span class="faq-icon">+</span></div>
+        <div class="faq-a">Sim. ERP e farmacoterapia (tipicamente ISRSs) são abordagens complementares para TOC — não excludentes. A combinação é frequentemente superior a cada uma isolada. Informe seu psiquiatra sobre o uso do programa.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
   <section id="lista-espera" class="cta-final">
     <div class="section-tag" style="color:rgba(183,228,199,0.85)">Vagas limitadas</div>
     <h2>Acesso<br/><em>Fundador.</em></h2>
     <p class="section-sub">Garanta sua vaga antes do lançamento. Pague metade para sempre, seja o primeiro a testar e molde o produto com seu feedback.</p>
 
-    <!-- Caixa de benefícios -->
-    <div style="
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.20);
-      border-radius: 24px;
-      padding: 32px 36px;
-      max-width: 480px;
-      margin: 0 auto 36px;
-      text-align: left;
-    ">
+    <div style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.20);border-radius:24px;padding:32px 36px;max-width:480px;margin:0 auto 36px;text-align:left;">
       <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px;">
         <span style="font-family:'Fraunces',serif;font-size:52px;font-weight:900;color:white;line-height:1;">R$19,90</span>
         <span style="font-size:15px;color:rgba(255,255,255,0.6);">/mês para sempre</span>
       </div>
-      <p style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:24px;line-height:1.5;">
-        Preço normal após lançamento: R$37,90/mês. Você trava o valor fundador permanentemente.
-      </p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:24px;line-height:1.5;">Preço após lançamento: R$37,90/mês. Fundadores travam o valor permanentemente.</p>
 
-      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);">Acesso completo a todos os 42 exercícios ERP</span>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Acesso completo a todos os 42 exercícios ERP</span>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);">Preço fundador travado — nunca aumenta</span>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Preço fundador travado — nunca aumenta</span>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);">Acesso beta antes de todo mundo</span>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Acesso beta antes do lançamento público</span>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);">Seu feedback molda o produto</span>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Seu feedback molda o produto diretamente</span>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;">
-          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <span style="font-size:14px;color:rgba(255,255,255,0.85);">Cobrança só inicia no lançamento</span>
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;">
+          <div style="width:22px;height:22px;border-radius:50%;background:var(--greenLight);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4l3 3 6-6" stroke="#2D6A4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Cobrança inicia apenas no lançamento</span>
         </div>
-      </div>
 
-      <form id="waitlist-form">
+      <form id="waitlist-form" style="margin-top:20px;">
         <input type="email" id="email-input" name="email" placeholder="seu@email.com"
           autocomplete="email" inputmode="email" required
           aria-label="Seu e-mail para garantir acesso fundador"
@@ -405,15 +552,16 @@
         </button>
       </form>
     </div>
-
     <p style="font-size:12px;color:rgba(255,255,255,0.38);max-width:380px;margin:0 auto;line-height:1.7;">
-      Você não será cobrado agora. Cobraremos apenas quando o app for lançado, e você pode cancelar a qualquer momento.
+      Você não será cobrado agora. Cobraremos apenas quando o app for lançado. Cancele a qualquer momento.
     </p>
   </section>
 
   <!-- DISCLAIMER -->
   <div class="disclaimer">
-    <p>O TOCLivre é um aplicativo de bem-estar e autoconhecimento. Não é um dispositivo médico, não realiza diagnósticos e não substitui avaliação ou tratamento por profissional de saúde mental licenciado. Se você estiver em risco ou com sintomas graves, procure ajuda médica imediata.</p>
+    <p>
+      O TOCLivre é um aplicativo de bem-estar e autoconhecimento registrado sob a LGPD. <strong>Não é dispositivo médico, não realiza diagnósticos clínicos e não substitui avaliação, prescrição ou acompanhamento por profissional de saúde mental licenciado.</strong> O uso é indicado para adultos com TOC leve a moderado, preferencialmente com acompanhamento profissional. Casos graves, crises agudas ou ideação suicida requerem atendimento presencial imediato. Em emergência: CVV 188 · SAMU 192 · Pronto-Socorro.
+    </p>
   </div>
 
   <!-- FOOTER -->
@@ -424,11 +572,12 @@
           <svg class="logo-mark" width="42" height="42" aria-hidden="true"><use href="#toclivre-logo-dark"/></svg>
           <div class="footer-logo">TOC<span>Livre</span></div>
         </div>
-        <div class="footer-tagline">App de bem-estar baseado em ERP. Em português, para quem precisa.</div>
+        <div class="footer-tagline">Programa de bem-estar baseado em ERP. Desenvolvido por psiquiatra. Em português, para quem precisa.</div>
       </div>
       <div class="footer-links">
-        <h4>App</h4>
+        <h4>Programa</h4>
         <a href="#como-funciona">Como funciona</a>
+        <a href="#base-cientifica">Base científica</a>
         <a href="#subtypes">Subtipos</a>
         <a href="#protocolo">Protocolo</a>
         <a href="#lista-espera">Acesso fundador</a>
@@ -437,23 +586,23 @@
         <h4>Legal</h4>
         <a href="#">Política de Privacidade</a>
         <a href="#">Termos de Uso</a>
-        <a href="#">LGPD</a>
+        <a href="#">LGPD — Dados Pessoais</a>
         <a href="mailto:contato@toclivre.com.br">contato@toclivre.com.br</a>
       </div>
       <div class="footer-links">
         <h4>Redes</h4>
-        <a href="https://instagram.com/toclivre">@toclivre no Instagram</a>
-        <a href="https://tiktok.com/@toclivre">@toclivre no TikTok</a>
+        <a href="https://instagram.com/toclivre" target="_blank" rel="noopener">@toclivre no Instagram</a>
+        <a href="https://tiktok.com/@toclivre" target="_blank" rel="noopener">@toclivre no TikTok</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">© 2026 TOCLivre. Todos os direitos reservados.</div>
-      <div class="footer-disclaimer">Aplicativo de bem-estar · Não é dispositivo médico · Não substitui profissional de saúde mental</div>
+      <div class="footer-disclaimer">Aplicativo de bem-estar · Não é dispositivo médico · Não substitui profissional de saúde mental licenciado</div>
     </div>
   </footer>
 
   <script>
-    // Scroll reveal
+        // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -462,17 +611,68 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     setTimeout(() => document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible')), 100);
 
-    // Waitlist form
-    document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+    // Waitlist form — integração Brevo
+    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      if (!document.getElementById('email-input').value.trim()) return;
-      this.setAttribute('aria-live', 'polite');
-      this.innerHTML = '<div style="text-align:center;color:white;padding:20px"><div style="font-size:32px;margin-bottom:12px">✓</div><div style="font-family:Fraunces,serif;font-size:22px;font-weight:900;margin-bottom:8px">Vaga garantida!</div><div style="font-size:14px;opacity:0.75;line-height:1.6">Você está na lista de fundadores. Entraremos em contato assim que o app estiver pronto para você testar.</div></div>';
+      const email = document.getElementById('email-input').value.trim();
+      if (!email) return;
+
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = 'Aguarde...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://api.brevo.com/v3/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'api-key': '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'
+          },
+          body: JSON.stringify({
+            email: email,
+            attributes: { FONTE: 'landing-fundador' },
+            updateEnabled: true
+          })
+        });
+
+        // 201 = criado, 204 = atualizado — ambos são sucesso
+        if (res.status === 201 || res.status === 204) {
+          mostrarSucesso(this);
+        } else {
+          const data = await res.json();
+          // Contato já existe — tudo bem
+          if (data.code === 'duplicate_parameter') {
+            mostrarSucesso(this);
+          } else {
+            throw new Error(data.message);
+          }
+        }
+      } catch (err) {
+        btn.textContent = 'Garantir acesso fundador — R$19,90/mês';
+        btn.disabled = false;
+        alert('Algo deu errado. Tente novamente ou mande email para contato@toclivre.com.br');
+        console.error(err);
+      }
     });
+
+    function mostrarSucesso(form) {
+      form.setAttribute('aria-live', 'polite');
+      form.innerHTML = '<div style="text-align:center;color:white;padding:20px"><div style="font-size:32px;margin-bottom:12px">✓</div><div style="font-family:Fraunces,serif;font-size:22px;font-weight:900;margin-bottom:8px">Vaga garantida!</div><div style="font-size:14px;opacity:0.75;line-height:1.6">Você está na lista de fundadores. Entraremos em contato assim que o app estiver pronto para você testar.</div></div>';
+    }
 
     // Nav shadow on scroll
     window.addEventListener('scroll', () => {
       document.querySelector('nav').style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
+    });
+  </script>
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
     });
   </script>
 </body>
