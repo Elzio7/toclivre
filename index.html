@@ -334,8 +334,8 @@
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">📈</div>
-        <div class="feature-title">Acompanhamento longitudinal</div>
-        <div class="feature-desc">Curva semanal do SUDS médio, taxa de prevenção de resposta e marcos clínicos ao longo de 6 semanas. Dados exportáveis para seu terapeuta.</div>
+        <div class="feature-title">Relatório PDF para seu profissional</div>
+        <div class="feature-desc">Relatório mensal em PDF com SUDS médio semanal, taxa de prevenção de resposta, sessões realizadas, habituações confirmadas e reavaliação Y-BOCS. Você gera e compartilha com seu psiquiatra ou psicólogo.</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <div class="feature-icon">🔒</div>
@@ -417,7 +417,7 @@
       <div class="protocol-step reveal reveal-delay-1"><div class="step-num">2</div><div class="step-content"><div class="step-title">Registro de episódios</div><div class="step-desc">Log de gatilhos, SUDS, nível de prevenção de resposta e compulsão realizada. Esses dados alimentam toda a análise longitudinal e o relatório para o terapeuta.</div><span class="step-tag">Diário · Contínuo</span></div></div>
       <div class="protocol-step reveal reveal-delay-2"><div class="step-num">3</div><div class="step-content"><div class="step-title">Sessões ERP guiadas</div><div class="step-desc">Hierarquia progressiva com desbloqueio baseado em habituação confirmada. Curva de SUDS em tempo real. Exposição sem reassurance embutido.</div><span class="step-tag">ERP · 3–5x por semana</span></div></div>
       <div class="protocol-step reveal"><div class="step-num">4</div><div class="step-content"><div class="step-title">Notificações clínicas</div><div class="step-desc">D+3 confirmação, D+7 resumo, D+14 sinal precoce, D+28 reavaliação Y-BOCS, D+42 check de plateau. Lógica clínica, não gamificação.</div><span class="step-tag">Longitudinal · 6 semanas</span></div></div>
-      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">5</div><div class="step-content"><div class="step-title">Relatório para o terapeuta</div><div class="step-desc">SUDS médio semanal, taxa de prevenção de resposta, sessões realizadas e habituações confirmadas. Dados objetivos para potencializar sessões presenciais.</div><span class="step-tag">Relatório · Mensal</span></div></div>
+      <div class="protocol-step reveal reveal-delay-1"><div class="step-num">5</div><div class="step-content"><div class="step-title">Relatório PDF para o profissional</div><div class="step-desc">Relatório mensal em PDF com SUDS médio semanal, taxa de prevenção de resposta, sessões realizadas, habituações confirmadas e reavaliação Y-BOCS. Você gera o PDF no app e compartilha diretamente com seu psiquiatra ou psicólogo por WhatsApp ou email.</div><span class="step-tag">Relatório PDF · Mensal</span></div></div>
       <div class="protocol-step reveal reveal-delay-2"><div class="step-num">6</div><div class="step-content"><div class="step-title">Manutenção e prevenção de recaída</div><div class="step-desc">Plano de continuidade com exposições de reforço, revisão da hierarquia e identificação de sinais de risco para consolidar o aprendizado.</div><span class="step-tag">Manutenção · Pós 6 semanas</span></div></div>
     </div>
   </section>
@@ -500,6 +500,10 @@
       <div class="faq-item">
         <div class="faq-q">Posso usar junto com medicação psiquiátrica? <span class="faq-icon">+</span></div>
         <div class="faq-a">Sim. ERP e farmacoterapia (tipicamente ISRSs) são abordagens complementares para TOC — não excludentes. A combinação é frequentemente superior a cada uma isolada. Informe seu psiquiatra sobre o uso do programa.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Como funciona o relatório para meu psiquiatra ou psicólogo? <span class="faq-icon">+</span></div>
+        <div class="faq-a">O app gera mensalmente um relatório em PDF com seus dados clínicos: SUDS médio semanal, taxa de prevenção de resposta, sessões ERP realizadas, habituações confirmadas e reavaliação Y-BOCS. Você controla o compartilhamento — basta gerar o PDF e enviar diretamente para seu profissional por WhatsApp, email ou como preferir. Nenhum dado é enviado automaticamente a terceiros.</div>
       </div>
     </div>
   </section>
@@ -648,8 +652,14 @@
     window.addEventListener('scroll', () => {
       document.querySelector('nav').style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.08)' : 'none';
     });
-  </script>
-
     // FAQ accordion
     document.querySelectorAll('.faq-item').forEach(item => {
-      item.querySelector('.faq-q').addEventListener('clic
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>
