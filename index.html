@@ -542,14 +542,24 @@
           <span style="font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55;">Cobrança inicia apenas no lançamento</span>
         </div>
 
-      <form id="waitlist-form" style="margin-top:20px;">
-        <input type="email" id="email-input" name="email" placeholder="seu@email.com"
-          autocomplete="email" inputmode="email" required
+      <form id="sib-form" method="POST" action="https://cd666cdf.sibforms.com/serve/MUIFADzIfGChC9UDR__mwN6W-q6Bmj2zcBXfVKimM_0Ry9DtA9lDQ8edPrBuNUUOLEA8VRK-72O_MAV1ILXRUAoqWOxrGgZrV0L4nwp2q5sNr8Y1PiiA-BOEuJGtDzlBqBjnSSlZPIFOUl2boB80q6ATlw993RtDQYUevnhoe_7gaZKVR9XwOkKA_VcsJ23kW0G61yHZR6I3TZlaGg==" style="margin-top:20px;">
+        <input type="text" id="NOME" name="NOME" placeholder="Seu nome"
+          required maxlength="200"
+          aria-label="Seu nome"
+          style="width:100%;padding:16px 22px;border-radius:100px;margin-bottom:12px;
+                 font-family:'DM Sans',sans-serif;font-size:15px;outline:none;
+                 background:rgba(255,255,255,0.12);color:white;
+                 border:1.5px solid rgba(255,255,255,0.25);box-sizing:border-box;"/>
+        <input type="email" id="EMAIL" name="EMAIL" placeholder="seu@email.com"
+          required
           aria-label="Seu e-mail para garantir acesso fundador"
           style="width:100%;padding:16px 22px;border-radius:100px;margin-bottom:12px;
                  font-family:'DM Sans',sans-serif;font-size:15px;outline:none;
                  background:rgba(255,255,255,0.12);color:white;
                  border:1.5px solid rgba(255,255,255,0.25);box-sizing:border-box;"/>
+        <input type="text" name="email_address_check" value="" style="display:none;">
+        <input type="hidden" name="locale" value="pt">
+        <input type="hidden" name="html_type" value="simple">
         <button type="submit" class="btn-white" style="width:100%;justify-content:center;font-size:16px;padding:18px;">
           Garantir acesso fundador — R$19,90/mês
         </button>
@@ -614,39 +624,19 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     setTimeout(() => document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('visible')), 100);
 
-    // Waitlist form — integração Formspree
-    document.getElementById('waitlist-form').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const email = document.getElementById('email-input').value.trim();
-      if (!email) return;
-
+    // Waitlist form — integração Brevo
+    document.getElementById('sib-form').addEventListener('submit', function(e) {
       const btn = this.querySelector('button[type="submit"]');
       btn.textContent = 'Aguarde...';
       btn.disabled = true;
-
-      try {
-        const res = await fetch('https://formspree.io/f/mlgwqrna', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email, fonte: 'acesso-fundador' })
-        });
-
-        if (res.ok) {
-          mostrarSucesso(this);
-        } else {
-          throw new Error('Erro ao enviar');
-        }
-      } catch (err) {
-        btn.textContent = 'Garantir acesso fundador — R$19,90/mês';
-        btn.disabled = false;
-        alert('Algo deu errado. Tente novamente ou mande email para contato@toclivre.com.br');
-      }
+      // O form submete direto pro Brevo via action POST
+      // Após envio, mostramos mensagem de sucesso com pequeno delay
+      setTimeout(function() {
+        const form = document.getElementById('sib-form');
+        form.setAttribute('aria-live', 'polite');
+        form.innerHTML = '<div style="text-align:center;color:white;padding:20px"><div style="font-size:32px;margin-bottom:12px">✓</div><div style="font-family:Fraunces,serif;font-size:22px;font-weight:900;margin-bottom:8px">Vaga garantida!</div><div style="font-size:14px;opacity:0.75;line-height:1.6">Você está na lista de fundadores. Entraremos em contato assim que o app estiver pronto para você testar.</div></div>';
+      }, 1500);
     });
-
-    function mostrarSucesso(form) {
-      form.setAttribute('aria-live', 'polite');
-      form.innerHTML = '<div style="text-align:center;color:white;padding:20px"><div style="font-size:32px;margin-bottom:12px">✓</div><div style="font-family:Fraunces,serif;font-size:22px;font-weight:900;margin-bottom:8px">Vaga garantida!</div><div style="font-size:14px;opacity:0.75;line-height:1.6">Você está na lista de fundadores. Entraremos em contato assim que o app estiver pronto para você testar.</div></div>';
-    }
 
     // Nav shadow on scroll
     window.addEventListener('scroll', () => {
